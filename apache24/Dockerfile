@@ -1,7 +1,7 @@
 FROM httpd:2.4-alpine
-MAINTAINER chin@oberon.nl
+LABEL maintainer="jurriaanr@gmail.com"
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN mkdir -p /app && \
 	mkdir -p /usr/local/apache2/conf/other/
@@ -14,7 +14,7 @@ RUN echo 'IncludeOptional /usr/local/apache2/conf/other/*.conf' >> /usr/local/ap
 # ENV
 VOLUME /app
 WORKDIR /app
-ENV TERM xterm
-ENV APACHE_DOCUMENTROOT /app
-ENV PHP_FPM_HOSTNAME php
-ENV PHP_FPM_PORT 9000
+ENV TERM=xterm
+ENV APACHE_DOCUMENTROOT=/app/public
+ENV PHP_FPM_HOSTNAME=php
+ENV PHP_FPM_PORT=9000
